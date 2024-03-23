@@ -1,28 +1,36 @@
+import React from "react";
 
-function Pokemon({ studentImage, studentName, studentAlias, id, btn1, btn2, hp, attk, def, title, description}) {
-    return (
-        <div className="student">
-           
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <img className="student-image" src={studentImage} alt="profile picture" />
-            <h2 className="student-name">
-                {id} {studentName}
-            </h2>
-            <div className="btn-container">
-                <button className="btn1">{btn1}</button>
-                <div className="space"></div> {/* Add space */}
-                <button className="btn2">{btn2}</button>    
-            </div>
-            <p className="Health">HP: {hp}</p>
-            <p className="attack">Attk: {attk}</p>
-            <p className="defense">Def: {def}</p>
-            <p className="student-alias">{studentAlias}</p>
-            
+function Pokemon({ pokemon, language, image, id, name, HP, Speed, Defense, SPAttack, attack,SPDef}) {
+  return (
+    <div className="pokemon">
+      <img className="pokemon-image" src={image} alt={pokemon.name.english} />
+      <div className="title">
+        {/* Render the name based on the selected language */}
+        <h2 className="pokemon-name">[{id}] {name[language]}</h2>
+      </div>
+      <div className="type">
+        {pokemon.type.map((type, index) => (
+          <button className="btn" key={index}>
+            {type}
+          </button>
+        ))}
+      </div>
+      <div className="details">
+        <div className="stats">
+          <h2>HP: {HP}</h2>
+          <h2>Speed: {Speed}</h2>
         </div>
-    );
-    
-    
+        <div className="stats">
+          <h2>Defense: {Defense}</h2>
+          <h2>Sp. Attack: {SPAttack}</h2>
+        </div>
+        <div className="stats">
+          <h2>Attack: {attack}</h2>
+          <h2>Sp. Def: {SPDef}</h2>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Pokemon;

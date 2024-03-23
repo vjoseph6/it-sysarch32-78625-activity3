@@ -1,12 +1,12 @@
-import Content from "./Content"
 import Header from "./Header"
+import Pokedex from "./Pokedex"
 function App() {
   
 
   return (
     <>
       <Header/>
-      <Content/>
+      <Pokedex/>
       
     </>
   )
